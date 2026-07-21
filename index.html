@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+   PROJECT       : ROTIS - Rotis Tech (Private) Limited
+   FILE          : index.html
+   DESCRIPTION   : Main HTML entry point - hosts the React app root and the
+                   hidden dummy forms required for Netlify Forms detection.
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   DEVELOPED BY  : dotwasi
+   CEO & OWNER   : Usman Yaseen
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   COPYRIGHT (c) 2026 Rotis Tech (Private) Limited. All Rights Reserved.
+
+   This source code is the confidential and proprietary property of
+   Rotis Tech (Private) Limited. Unauthorized copying, modification,
+   distribution, or use of this file, via any medium, is strictly
+   prohibited without prior written permission from the owner.
+  =============================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/rotis-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotis Tech | Fourth Industrial Revolution in Hospitality</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 
+      DUMMY FORMS FOR NETLIFY DETECTION.
+      These are hidden from users but are essential for Netlify's build bots
+      to detect and prepare the backend for your forms.
+    -->
+
+    <!-- Dummy form for the 'contact' page -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <!-- Dummy form for the 'survey' modal -->
+    <!-- This form MUST contain an input for every possible field name -->
+    <form name="survey" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="What type of food business do you operate?" />
+      <input type="text" name="How many locations do you currently operate?" />
+      <input type="text" name="Approximately how many employees do you have?" />
+      <input type="text" name="Which operational challenges affect your business the most? (Select up to 5)" />
+      <input type="text" name="Which software do you currently use?" />
+      <input type="text" name="Overall, how satisfied are you with your current software?" />
+      <input type="text" name="Which AI capabilities would provide the greatest value to your business?" />
+      <input type="text" name="If you could simply ask your software: &quot;Why are sales down today?&quot; or &quot;How can I reduce food waste?&quot;, would this be valuable?" />
+      <input type="text" name="Would you trust an AI assistant to recommend operational decisions while leaving the final decision to you?" />
+      <input type="text" name="Which statement best describes your preference?" />
+      <input type="text" name="If a platform could reduce food waste, improve profits, and provide an AI assistant, how interested would you be?" />
+      <input type="text" name="What monthly subscription would you consider reasonable?" />
+      <input type="text" name="Would you be interested in participating in a free pilot programme?" />
+      <textarea name="In your opinion, what is the biggest operational challenge facing UK restaurants today?"></textarea>
+      <textarea name="If you could add one feature to future restaurant software, what would it be?"></textarea>
+      <input type="text" name="Contact Business Name" />
+      <input type="text" name="Contact Email" />
+    </form>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

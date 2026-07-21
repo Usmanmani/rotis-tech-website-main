@@ -1,0 +1,81 @@
+/**
+ * =============================================================================
+ *  PROJECT       : ROTIS - Rotis Tech (Private) Limited
+ *  FILE          : src/components/Survey.css
+ *  DESCRIPTION   : Styles for the market-research survey modal.
+ * -----------------------------------------------------------------------------
+ *  DEVELOPED BY  : dotwasi
+ *  CEO & OWNER   : Usman Yaseen
+ * -----------------------------------------------------------------------------
+ *  COPYRIGHT (c) 2026 Rotis Tech (Private) Limited. All Rights Reserved.
+ *
+ *  This source code is the confidential and proprietary property of
+ *  Rotis Tech (Private) Limited. Unauthorized copying, modification,
+ *  distribution, or use of this file, via any medium, is strictly
+ *  prohibited without prior written permission from the owner.
+ * =============================================================================
+ */
+
+/* src/components/Survey.css */
+
+.survey-form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+.survey-form-input::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+.survey-form-input:checked::before {
+    transform: scale(1);
+}
+
+.survey-form-input[type="checkbox"] {
+    border-radius: 0.15em;
+}
+
+.survey-form-input[type="checkbox"]::before {
+    border-radius: 0;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #4a5568; /* Gray color */
+    transition: color 0.2s;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #f59e0b; /* Amber/Gold color */
+}
