@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <radialGradient id="glowBg3" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#12202f"/>
+      <stop offset="55%" stop-color="#0d1424"/>
+      <stop offset="100%" stop-color="#0a0f1f"/>
+    </radialGradient>
+    <linearGradient id="bubbleL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="bubbleR" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#glowBg3)"/>
+
+  <!-- phone/panel frame -->
+  <rect x="330" y="90" width="540" height="720" rx="36" fill="#0f172a" stroke="#1f2937" stroke-width="2"/>
+  <rect x="356" y="130" width="488" height="620" rx="18" fill="#0b1120"/>
+
+  <!-- header -->
+  <g transform="translate(356,130)">
+    <rect width="488" height="64" rx="18" fill="#111827"/>
+    <circle cx="40" cy="32" r="18" fill="#0ea5e9" opacity="0.4"/>
+    <text x="76" y="28" font-family="Arial, sans-serif" font-size="16" fill="#f0f9ff" font-weight="700">Global Support Chat</text>
+    <text x="76" y="47" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Auto-translated, live</text>
+  </g>
+
+  <!-- chat bubbles -->
+  <!-- incoming, left, customer, French -->
+  <g transform="translate(384,220)">
+    <rect width="300" height="76" rx="18" fill="#1e293b"/>
+    <rect x="14" y="12" width="56" height="18" rx="6" fill="#38bdf8" opacity="0.25"/>
+    <text x="42" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#7dd3fc">FR</text>
+    <text x="14" y="52" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">Bonjour, j'ai un souci.</text>
+    <text x="14" y="70" font-family="Arial, sans-serif" font-size="12" fill="#64748b" font-style="italic">→ "Hi, I have an issue."</text>
+  </g>
+
+  <!-- outgoing, right, agent, English shown as German to customer -->
+  <g transform="translate(414,320)">
+    <rect width="300" height="76" rx="18" fill="url(#bubbleL)"/>
+    <rect x="230" y="12" width="56" height="18" rx="6" fill="#0a0f1f" opacity="0.25"/>
+    <text x="258" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#e0f2fe">EN</text>
+    <text x="16" y="52" font-family="Arial, sans-serif" font-size="15" fill="#f0f9ff">Bien sûr, je peux vous aider.</text>
+    <text x="16" y="70" font-family="Arial, sans-serif" font-size="12" fill="#e0f2fe" opacity="0.75" font-style="italic">sent as: "Of course, happy to help."</text>
+  </g>
+
+  <!-- incoming, left, customer, Spanish -->
+  <g transform="translate(384,420)">
+    <rect width="320" height="76" rx="18" fill="#1e293b"/>
+    <rect x="14" y="12" width="56" height="18" rx="6" fill="#38bdf8" opacity="0.25"/>
+    <text x="42" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#7dd3fc">ES</text>
+    <text x="14" y="52" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">¡Gracias por la ayuda rápida!</text>
+    <text x="14" y="70" font-family="Arial, sans-serif" font-size="12" fill="#64748b" font-style="italic">→ "Thanks for the quick help!"</text>
+  </g>
+
+  <!-- outgoing, right, agent -->
+  <g transform="translate(414,520)">
+    <rect width="300" height="60" rx="18" fill="url(#bubbleR)"/>
+    <rect x="222" y="10" width="64" height="18" rx="6" fill="#0a0f1f" opacity="0.2"/>
+    <text x="254" y="23" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ecfeff">EN</text>
+    <text x="16" y="38" font-family="Arial, sans-serif" font-size="15" fill="#f0fdfa">You're very welcome!</text>
+  </g>
+
+  <!-- translate icon badge floating between bubbles -->
+  <g transform="translate(760,300)">
+    <circle cx="0" cy="0" r="34" fill="#0a0f1f" stroke="#14b8a6" stroke-opacity="0.4" stroke-width="1.5"/>
+    <path d="M-14 -6 h26 l-8 -8 M14 6 h-26 l8 8" stroke="#5eead4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <g transform="translate(760,440)">
+    <circle cx="0" cy="0" r="34" fill="#0a0f1f" stroke="#0ea5e9" stroke-opacity="0.4" stroke-width="1.5"/>
+    <path d="M-14 -6 h26 l-8 -8 M14 6 h-26 l8 8" stroke="#7dd3fc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- input bar -->
+  <g transform="translate(384,690)">
+    <rect width="432" height="44" rx="22" fill="#111827" stroke="#1f2937"/>
+    <text x="20" y="28" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Type a reply — sent in their language…</text>
+    <circle cx="404" cy="22" r="16" fill="url(#bubbleL)"/>
+  </g>
+
+  <!-- ambient floating language tags outside phone -->
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#f0f9ff" opacity="0.14">
+    <g transform="translate(120,200)"><rect width="58" height="30" rx="8" fill="#ffffff" opacity="0.06"/><text x="29" y="21" text-anchor="middle">PT</text></g>
+    <g transform="translate(1010,220)"><rect width="70" height="30" rx="8" fill="#ffffff" opacity="0.06"/><text x="35" y="21" text-anchor="middle">عربي</text></g>
+    <g transform="translate(110,600)"><rect width="70" height="30" rx="8" fill="#ffffff" opacity="0.06"/><text x="35" y="21" text-anchor="middle">中文</text></g>
+    <g transform="translate(1000,600)"><rect width="58" height="30" rx="8" fill="#ffffff" opacity="0.06"/><text x="29" y="21" text-anchor="middle">IT</text></g>
+  </g>
+</svg>

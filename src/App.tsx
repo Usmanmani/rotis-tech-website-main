@@ -21,6 +21,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import AboutCompany from './pages/AboutCompany';
 import RotisSolution from './pages/RotisSolution';
+import LinguaBridgeSolution from './pages/LinguaBridgeSolution';
 import PortfolioImpact from './pages/PortfolioImpact';
 import TechStack from './pages/TechStack';
 import CoreServices from './pages/CoreServices';
@@ -37,6 +38,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about-company" element={<AboutCompany />} />
           <Route path="solution-rotis" element={<RotisSolution />} />
+          <Route path="solution-linguabridge" element={<LinguaBridgeSolution />} />
           <Route path="portfolio-impact" element={<PortfolioImpact />} />
           <Route path="tech-stack" element={<TechStack />} />
           <Route path="core-services" element={<CoreServices />} />

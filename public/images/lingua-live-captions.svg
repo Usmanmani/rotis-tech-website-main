@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <radialGradient id="glowBg2" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#122031"/>
+      <stop offset="55%" stop-color="#0d1424"/>
+      <stop offset="100%" stop-color="#0a0f1f"/>
+    </radialGradient>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1120"/>
+    </linearGradient>
+    <linearGradient id="ccBadge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#glowBg2)"/>
+
+  <!-- screen / meeting window -->
+  <rect x="140" y="130" width="920" height="600" rx="26" fill="url(#screenGrad)" stroke="#1f2937" stroke-width="2"/>
+  <rect x="140" y="130" width="920" height="64" rx="26" fill="#0f172a"/>
+  <circle cx="182" cy="162" r="8" fill="#f87171" opacity="0.8"/>
+  <circle cx="210" cy="162" r="8" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="238" cy="162" r="8" fill="#34d399" opacity="0.8"/>
+  <text x="600" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8">Live Session — Multilingual Meeting</text>
+
+  <!-- participant tiles -->
+  <g>
+    <rect x="176" y="222" width="260" height="180" rx="16" fill="#0ea5e9" opacity="0.10"/>
+    <circle cx="306" cy="292" r="38" fill="#0ea5e9" opacity="0.35"/>
+    <rect x="176" y="222" width="260" height="180" rx="16" fill="none" stroke="#0ea5e9" stroke-opacity="0.3"/>
+
+    <rect x="470" y="222" width="260" height="180" rx="16" fill="#14b8a6" opacity="0.10"/>
+    <circle cx="600" cy="292" r="38" fill="#14b8a6" opacity="0.35"/>
+    <rect x="470" y="222" width="260" height="180" rx="16" fill="none" stroke="#14b8a6" stroke-opacity="0.3"/>
+
+    <rect x="764" y="222" width="260" height="180" rx="16" fill="#f0f9ff" opacity="0.06"/>
+    <circle cx="894" cy="292" r="38" fill="#f0f9ff" opacity="0.18"/>
+    <rect x="764" y="222" width="260" height="180" rx="16" fill="none" stroke="#f0f9ff" stroke-opacity="0.15"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#cbd5e1" opacity="0.85">
+    <text x="306" y="366" text-anchor="middle">Speaker — English</text>
+    <text x="600" y="366" text-anchor="middle">Speaker — Deutsch</text>
+    <text x="894" y="366" text-anchor="middle">Speaker — 日本語</text>
+  </g>
+
+  <!-- main stage -->
+  <rect x="176" y="424" width="848" height="230" rx="16" fill="#0ea5e9" opacity="0.07"/>
+  <rect x="176" y="424" width="848" height="230" rx="16" fill="none" stroke="#0ea5e9" stroke-opacity="0.25"/>
+  <circle cx="600" cy="500" r="54" fill="#0ea5e9" opacity="0.3"/>
+  <path d="M600 470 a22 22 0 0 1 22 22 v14 a22 22 0 0 1 -44 0 v-14 a22 22 0 0 1 22 -22 z" fill="#e0f2fe"/>
+  <rect x="590" y="514" width="20" height="24" rx="5" fill="#e0f2fe"/>
+
+  <!-- caption bar -->
+  <rect x="176" y="596" width="848" height="46" rx="10" fill="#0a0f1f" opacity="0.85"/>
+  <g transform="translate(196,610)">
+    <rect width="46" height="20" rx="6" fill="url(#ccBadge)"/>
+    <text x="23" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#0a0f1f">CC</text>
+  </g>
+  <text x="260" y="626" font-family="Arial, sans-serif" font-size="17" fill="#f0f9ff">"Let's review the rollout plan for next quarter."</text>
+
+  <!-- floating translated subtitle chip below screen -->
+  <rect x="330" y="760" width="540" height="70" rx="14" fill="#111827" stroke="#14b8a6" stroke-opacity="0.4" stroke-width="1.5"/>
+  <g transform="translate(354,778)">
+    <rect width="60" height="24" rx="7" fill="#14b8a6" opacity="0.2"/>
+    <text x="30" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#5eead4">DE</text>
+  </g>
+  <text x="440" y="800" font-family="Arial, sans-serif" font-size="16" fill="#e2e8f0">„Lass uns den Rollout-Plan für Q2 besprechen.“</text>
+</svg>

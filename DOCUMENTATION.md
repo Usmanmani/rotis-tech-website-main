@@ -158,6 +158,7 @@ All routes are declared in [src/App.tsx](src/App.tsx) inside a `HashRouter`, nes
 | `/#/` | `src/pages/Home.tsx` | Landing page — hero and company introduction |
 | `/#/about-company` | `src/pages/AboutCompany.tsx` | Company vision, mission, background |
 | `/#/solution-rotis` | `src/pages/RotisSolution.tsx` | Flagship product: the ROTIS platform |
+| `/#/solution-linguabridge` | `src/pages/LinguaBridgeSolution.tsx` | Product: LinguaBridge real-time multilingual communication platform |
 | `/#/portfolio-impact` | `src/pages/PortfolioImpact.tsx` | Portfolio and measurable impact |
 | `/#/tech-stack` | `src/pages/TechStack.tsx` | Technologies used by the company |
 | `/#/core-services` | `src/pages/CoreServices.tsx` | Service offerings (AI, cloud, mobile, UI/UX, …) |

@@ -17,7 +17,7 @@
  */
 
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const RotisLogo = () => (
@@ -36,7 +36,10 @@ const RotisLogo = () => (
 const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about-company' },
-    { name: 'Solutions', path: '/solution-rotis' },
+    { name: 'Solutions', children: [
+        { name: 'ROTIS Platform', path: '/solution-rotis' },
+        { name: 'LinguaBridge', path: '/solution-linguabridge' },
+    ] },
     { name: 'My Impact', path: '/portfolio-impact' },
     { name: 'Tech Stack', path: '/tech-stack' },
     { name: 'Services', path: '/core-services' },
@@ -48,13 +51,17 @@ const navLinks = [
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isMoreOpen, setIsMoreOpen] = useState(false);
+    const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const location = useLocation();
 
     const activeLinkClass = "bg-brand-primary text-white";
     const inactiveLinkClass = "text-gray-300 hover:bg-gray-700 hover:text-white";
     
     const getLinkClass = ({ isActive }: { isActive: boolean }) =>
         `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${isActive ? activeLinkClass : inactiveLinkClass}`;
+
+    const isChildActive = (children: { path: string }[]) =>
+        children.some(child => child.path === location.pathname);
         
     return (
         <nav className="bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50 shadow-lg shadow-brand-primary/10">
@@ -68,17 +75,44 @@ const Header = () => {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-2">
                            {navLinks.slice(0, 7).map(link => (
-                               <NavLink key={link.name} to={link.path} className={getLinkClass}>
-                                   {link.name}
-                               </NavLink>
+                               link.children ? (
+                                   <div key={link.name} className="relative" onMouseEnter={() => setOpenMenu(link.name)} onMouseLeave={() => setOpenMenu(null)}>
+                                       <button className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center ${isChildActive(link.children) ? activeLinkClass : inactiveLinkClass}`}>
+                                           <span>{link.name}</span>
+                                           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                       </button>
+                                       <AnimatePresence>
+                                       {openMenu === link.name && (
+                                           <motion.div
+                                               initial={{ opacity: 0, y: -10 }}
+                                               animate={{ opacity: 1, y: 0 }}
+                                               exit={{ opacity: 0, y: -10 }}
+                                               className="absolute left-0 top-full pt-2 w-56 z-20 origin-top-left"
+                                           >
+                                               <div className="bg-gray-800 rounded-md shadow-lg py-1">
+                                                {link.children.map(child => (
+                                                    <NavLink key={child.name} to={child.path} className={({isActive}) => `block px-4 py-2 text-sm ${isActive ? 'text-brand-primary' : 'text-gray-300'} hover:bg-gray-700`} onClick={() => setOpenMenu(null)}>
+                                                        {child.name}
+                                                    </NavLink>
+                                                ))}
+                                                </div>
+                                           </motion.div>
+                                       )}
+                                       </AnimatePresence>
+                                   </div>
+                               ) : (
+                                   <NavLink key={link.name} to={link.path} className={getLinkClass}>
+                                       {link.name}
+                                   </NavLink>
+                               )
                            ))}
-                           <div className="relative" onMouseEnter={() => setIsMoreOpen(true)} onMouseLeave={() => setIsMoreOpen(false)}>
+                           <div className="relative" onMouseEnter={() => setOpenMenu('More')} onMouseLeave={() => setOpenMenu(null)}>
                                 <button className={`${inactiveLinkClass} px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center`}>
                                     <span>More</span>
                                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
                                 <AnimatePresence>
-                                {isMoreOpen && (
+                                {openMenu === 'More' && (
                                     <motion.div 
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -87,7 +121,7 @@ const Header = () => {
                                     >
                                         <div className="bg-gray-800 rounded-md shadow-lg py-1">
                                          {navLinks.slice(7).map(link => (
-                                             <NavLink key={link.name} to={link.path} className={({isActive}) => `block px-4 py-2 text-sm ${isActive ? 'text-brand-primary' : 'text-gray-300'} hover:bg-gray-700`} onClick={() => setIsMoreOpen(false)}>
+                                             <NavLink key={link.name} to={link.path as string} className={({isActive}) => `block px-4 py-2 text-sm ${isActive ? 'text-brand-primary' : 'text-gray-300'} hover:bg-gray-700`} onClick={() => setOpenMenu(null)}>
                                                  {link.name}
                                              </NavLink>
                                          ))}
@@ -124,9 +158,20 @@ const Header = () => {
                 >
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {navLinks.map(link => (
-                           <NavLink key={link.name} to={link.path} className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClass : inactiveLinkClass}`} onClick={() => setIsOpen(false)}>
-                               {link.name}
-                           </NavLink>
+                           link.children ? (
+                               <div key={link.name}>
+                                   <div className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-gray-500">{link.name}</div>
+                                   {link.children.map(child => (
+                                       <NavLink key={child.name} to={child.path} className={({isActive}) => `block ml-3 px-3 py-2 rounded-md text-base font-medium border-l-2 border-gray-700 pl-4 ${isActive ? activeLinkClass : inactiveLinkClass}`} onClick={() => setIsOpen(false)}>
+                                           {child.name}
+                                       </NavLink>
+                                   ))}
+                               </div>
+                           ) : (
+                               <NavLink key={link.name} to={link.path} className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClass : inactiveLinkClass}`} onClick={() => setIsOpen(false)}>
+                                   {link.name}
+                               </NavLink>
+                           )
                         ))}
                     </div>
                 </motion.div>
